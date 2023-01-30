@@ -1,31 +1,34 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-    $censored = str_replace($password, '***', $password);
+$sentence = $_POST['sentence'];
+$secret_word = $_POST['password'];
+$newSentence = str_replace($secret_word, '***', $sentence);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <h1>Ciao <?php echo $name ?></h1>
-        <p>
-            La lunghezza del tuo nome è di <?php echo strlen($name) ?> caratteri.
-        </p>
-        <p>
-            Hai impostato la password: '<?php echo $censored ?> ' 
-        </p>
-        <p>
-            La sua lunghezza è di <?php echo strlen($password) ?> caratteri
-        </p>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>La tua frase è: <?php echo $sentence ?></h1>
+    <p>
+        La lunghezza della frase è di <?php echo strlen($sentence) ?> caratteri.
+    </p>
+    <p>
+        La frase censurata è: '<?php echo $newSentence ?> '
+    </p>
+    <p>
+        La sua lunghezza della parola segreta è di <?php echo strlen($secret_word) ?> caratteri
+    </p>
+</body>
+
 </html>
